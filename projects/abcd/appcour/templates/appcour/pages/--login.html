@@ -1,0 +1,55 @@
+{% extends 'appcour/layouts/base.html' %}
+
+{% load static %}
+
+{% block title %} Log In {% endblock %}
+
+{% block body %}
+
+<section class="hero">
+	<div class="hero-body">
+		<div class="container">
+			<div class="columns is-centered">
+				<div class="column is-5-tablet is-4-desktop is-5-widescreen">
+					<h1 class="title has-text-centered">Log In</h1>
+					<form class="box has-background-white-bis">
+						<div class="field has-text-centered">
+							<img src="{% static 'appcour/images/tn_emp_1.png' %}">
+						</div>
+						<div class="field">
+							<label class="label">Username</label>
+								<div class="control has-icons-left">
+									<input class="input" type="text" placeholder="seydina" required>
+									<span class="icon is-small is-left">
+										<i class="fa fa-user"></i>
+									</span>
+								</div>
+						</div>
+						<div class="field">
+							<label class="label">Password</label>
+								<div class="control has-icons-left">
+									<input class="input" type="password" placeholder="********" required>
+									<span class="icon is-small is-left">
+										<i class="fa fa-lock"></i>
+									</span>
+								</div>
+						</div>
+						<!-- <div class="field">
+							<label class="checkbox">
+								<input type="checkbox">
+									Remember me
+							</label>
+						</div> -->
+						<div class="field">
+							<button class="button has-background-primary">
+									<strong>Login</strong>
+							</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+{% endblock %}

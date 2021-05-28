@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Movie Lists</title>
+</head>
+<body>
+	<h1> Movies List </h1>
+	{% for movie in object_list	%}
+	<ul>
+		<li><a href="{% url 'movies:movie_detail' movie.slug %}">{{ movie.title }}</a></li>
+	</ul>
+	{% endfor %}
+	
+</body>
+</html>

@@ -1,0 +1,11 @@
+docker-compose -f local.yml build
+
+docker-compose run --rm django django-admin startapp subjects
+
+sudo vi /etc/sudoers.d/samabaly
+
+samabaly ALL=(ALL) NOPASSWD:ALL
+
+sudo chmod 0440 /etc/sudoers.d/samabaly
+
+sudo chown -R $USER:$USER subjects

@@ -1,0 +1,27 @@
+{% extends 'appcour/layouts/base.html' %}
+
+{% block title %} Home {% endblock %}
+	
+{% block body %}
+	
+	<div class="hero is-large">
+		<div class="hero-body">
+			<div class="container">
+				<div class="columns is-centered">
+					<!-- <div class="column"> -->
+						{% if user.is_authenticated %}
+		 				<p class="title is-size1">
+		 					Bienvenue 😃 !!
+		 				</p>
+		 				{% else %}
+		 				<p class="title is-size1">
+		 					Veuillez vous connecter pour commençer 🙂 !!
+		 				</p>
+		 				{% endif %}
+	 				<!-- 	</div -->
+	 			</div>
+			</div>
+		</div>
+	</div>
+
+{% endblock %}

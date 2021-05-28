@@ -1,0 +1,4 @@
+{% for sujet in object_list %}
+    <li>{{ sujet.year }} -- {{ sujet.classroom }}</li>
+    <p><a href="{% url 'subjects:detail' sujet.pk %}">{{ sujet.matiere }}</a></p>
+{% endfor %}

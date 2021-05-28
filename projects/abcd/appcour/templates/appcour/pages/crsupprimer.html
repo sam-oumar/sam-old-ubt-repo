@@ -1,0 +1,36 @@
+{% extends 'appcour/layouts/base.html' %}
+{% load static %}
+{% load bulma_tags %}
+{% block title %} Suppression Courrier {% endblock %}
+{% block body %}
+<div class="modal is-active">
+  		<div class="modal-background"></div>
+  			<div class="modal-card">
+    		    <header class="modal-card-head has-background-primary">
+			      <p class="modal-card-title has-text-centered">Confirmer Suppression</p>
+			      <a class="modal-button-close delete" aria-label="close" href="{% url 'appcour:crconsultation' %}"></a>
+			    </header>
+    		    <section class="modal-card-body">
+						<form class="notification is-warning" method="POST">
+							{% csrf_token %}
+							<div>
+								<p>Etes-vous sûr de voiloir supprimer ce courrier {{ form.code_msg }}</p>
+							</div>
+							
+						<div class="field">
+							<button class="button is-success">Confirmer</button>
+			      			<a class="button" href="{% url 'appcour:crconsultation' %}">Annuler</a>
+						</div>
+						</form>
+				</section>
+
+			    <footer class="modal-card-foot">
+			      <!-- <button class="button is-success">Valider Maj</button>
+			      <button class="button">Annule</button> -->
+			    </footer>
+
+  			</div>
+	</div>
+	<!-- Js -->
+	<!-- <script type="text/javascript" src="{% static 'appcour/modal-fx.js' %}"></script> -->
+{% endblock %}

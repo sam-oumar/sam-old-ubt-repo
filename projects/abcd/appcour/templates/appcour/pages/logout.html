@@ -1,0 +1,30 @@
+{% extends 'appcour/layouts/base.html' %}
+
+{% load static %}
+
+{% block title %} Deconnexion Utilisateurs {% endblock %}
+
+{% block body %}
+	
+	<div class="hero is-large">
+		<div class="hero-body">
+			<div class="container">
+				<div class="columns is-centered">
+					<div class="column is-half">
+		 				<div>
+			 				<p class="title is-size1">
+			 					Vous avez été deconnecté 😃 à très bientôt !!
+			 				</p>
+			 				<div class="columns is-half is-centered">
+			 				<small class="is-bordered" style="border-top: 1px solid #1ce;"> 
+			 					Reconnectez vous ici  <a href="{% url 'appcour:login' %}"> Connexion </a> 👈 !!
+			 				</small>
+			 				</div>
+		 				</div>
+	 				</div>
+	 			</div>
+			</div>
+		</div>
+	</div>
+
+{% endblock %}

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Movie Details</title>
+</head>
+<body>
+	<h1>Movie Detail</h1>
+	<h4> {{ object }} </h4>
+	<li> {{ object.description }} - {{ object.views_count }} <small> Vue(s)</small></li>
+	<h3>Links</h3>
+	{% for link in links %}
+	<ul>
+	{% if link.type_link == 'd' %}
+	<li><a href="{{ link.link }}" target="blank">Download Link</a></li>
+	{% else %}
+	<li><a href="{{ link.link }}" target="blank">Watch Link</a></li>
+	{% endif %}
+	</ul>
+	{% endfor %}
+	
+</body>
+</html>

@@ -1,0 +1,37 @@
+{% load static %}
+{% load bulma_tags %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>{% block title %}Courriers{% endblock %}</title>
+	<!-- Font Awsome -->
+	<link rel="stylesheet" type="text/css" href="{% static 'fontawesome/css/all.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'fontawesome/css/brands.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'fontawesome/css/solid.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'fontawesome/css/svg-with-js.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'fontawesome/css/v4-shims.css' %}">
+	<!-- Styles Css -->
+	<link rel="stylesheet" href="{% static 'appcour/bulma.css' %}">
+	<link rel="stylesheet" href="{% static 'appcour/styles.css' %}">
+</head>
+<body>
+
+	{% include 'appcour/layouts/nav.html' %}
+
+	{% if messages %}
+		{% for message in messages %}
+		<div class="notification is-{{ message.tags }}">
+			{{ message }}
+		</div>
+		{% endfor %}
+	{% endif %}
+
+	{% block body %}{% endblock %}
+
+	<!-- Scripts Js -->
+	<script type="text/javascript" src="{% static 'appcour/modal-fx.js' %}"></script>
+
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employees</title>
+</head>
+<body>
+    {% for company in company_list %}
+
+    <li>{{ company.name }}</li>
+
+    {% for employee in  company.employees.all %}
+
+	<ul>
+		<li><a href="{% url 'clbaseviews:employee_detail' employee.pk %}">{{ employee.first_name }}</li></a>
+	</ul>
+
+    {% endfor %}
+
+    {% endfor %}
+    
+</body>
+</html>

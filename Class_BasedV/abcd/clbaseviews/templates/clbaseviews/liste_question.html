@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Question</title>
+</head>
+<body>
+	
+	{% for ques in question_list %}
+	
+		<ul>
+		<li> Titre : {{ ques.title }}</li>
+		<p>Question : <a href="{% url 'clbaseviews:reponse' ques.slug %}">{{ ques.content }}</a>
+			<small> Auteur : {{ ques.author }}</small>
+		</p>
+		<small> Prevoius answers: </small>
+		{% for rep in ques.reponses.all %}
+		<ul>
+		<li>{{ rep.contenu }} -- <small>answered by : {{ rep.auteur }} </small> </li>
+		</ul>
+		{% endfor %}
+		</ul>
+
+	{% endfor %}	
+
+</body>
+</html>

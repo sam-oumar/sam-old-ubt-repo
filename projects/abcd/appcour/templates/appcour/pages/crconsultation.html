@@ -1,0 +1,78 @@
+{% extends 'appcour/layouts/base.html' %}
+{% load static %}
+{% load bulma_tags %}
+{% block title %} Consultation Courriers {% endblock %}
+{% block body %}
+<section class="hero">
+	<div class="hero-body">
+		<div class="container">
+			<div class="columns is-centered">
+				<!-- <div class="column is-5-tablet is-4-desktop is-5-widescreen"> -->
+				<div class="column">
+					<h1 class="title has-text-centered">Consultation</h1>
+					<table class="table is-hoverable table is-bordered is-fullwidth">
+						<thead>
+						<tr>
+							<th>Code Msg</th>
+							<th>Designation</th>
+							<th>Objet</th>
+							<th>Date Courrier</th>
+							<th>Date Reception</th>
+							<th>Type Message</th>
+							<th>Action</th>
+						</tr>
+						</thead>
+						<tbody>
+							{% for frm in form %}
+							<tr>
+							<td><strong>{{ frm.code_msg }}</strong>
+							</td>
+							<td>{{ frm.designation }}</td>
+							<td>{{ frm.objet }}</td>
+							<td>{{ frm.date_reception|date:'d-m-Y' }}</td>
+							<td>{{ frm.date_reception|date:'d-m-Y' }}</td>
+							<td>{{ frm.type_message }}</td>
+							<td>
+							<div class="buttons">
+							{% if perms.appcour.view_crmessage %}
+							<a class="button is-small" href="{% url 'appcour:crdetail' frm.id %}">
+								<div>
+									<span>Detail</span>
+									<span class="icon is-small">
+										<i class="fa fa-expand"></i>
+									</span>
+								</div>
+							</a>
+							{% endif %}
+							{% if perms.appcour.change_crmessage %}
+							<a class="button is-small" href="{% url 'appcour:creditermsg' frm.id %}">
+								<div>
+									<span>Edit</span>
+									<span class="icon is-small">
+										<i class="fa fa-edit"></i>
+									</span>
+								</div>
+							</a>
+							{% endif %}
+							{% if perms.appcour.delete_crmessage %}
+							<a class="button is-small" href="{% url 'appcour:crsupprimer' frm.id %}">
+								<div>
+								<span>Delete</span>
+								<span class="icon is-small">
+									<i class="fa fa-trash"></i>
+								</span>
+								</div>
+							</a>
+							{% endif %}
+							</div>
+							</td>
+							</tr>
+							{% endfor %}
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+{% endblock %}

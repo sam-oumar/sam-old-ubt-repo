@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Reponse</title>
+</head>
+<body>
+<h3>Question Title: {{ frm.title }}</h3>
+	<p>Question content : {{ frm.content }}<br/>
+		<small>Auteur : {{ frm.author }}</small>
+	</p> 
+
+	<form method="POST">{% csrf_token %}
+		{{ form.as_p }}
+		<button class="button" type="submit">Valider Maj</button>
+	</form>
+</body>
+</html>

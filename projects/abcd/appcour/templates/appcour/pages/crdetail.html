@@ -1,0 +1,54 @@
+{% extends 'appcour/layouts/base.html' %}
+{% load static %}
+{% load bulma_tags %}
+{% block title %} Detail Courriers {% endblock %}
+{% block body %}
+<section class="hero">
+	<div class="hero-body">
+		<div class="container">
+			<div class="columns is-centered">
+				<!-- <div class="column is-5-tablet is-4-desktop is-5-widescreen"> -->
+				<div class="column">
+					<h1 class="title">Detail</h1>
+					<div class="notification has-background-white">
+						<p>
+						<h1> N° : {{ form.code_msg }} </h1>
+						<h1> Objet : {{ form.objet }} </h1>
+						<h1 style="margin-bottom: 15px;"> Designation : {{ form.designation }} </h1>
+						</p>
+						<div class="columns">
+							<div class="column">
+								<table class="table">
+									<thead>
+										<tr>
+											<th>Service</th>
+											<th>Date Imputation</th>
+											<th>Date Limite Imputation</th>
+											<th>Observation</th>
+											<th>Statut Msg</th>
+										</tr>
+									</thead>
+									<tbody>
+										{% for form in form.crimputation_set.all %}
+										<tr>
+											<td>{{ form.crservice }}</td>
+											<td>{{ form.date_imput|date:'d-m-Y' }}</td>
+											<td>{{ form.date_lmt_trmt|date:'d-m-Y' }}</td>
+											<td>{{ form.observation }}</td>
+											<td>{{ form.statut_msg }}</td>
+										</tr>
+										{% endfor %}
+									</tbody>
+								</table>
+								<small class="is-bordered" style="border-top: 1px solid #1ce;"> 
+									Retour vers la <a href="{% url 'appcour:crconsultation' %}">Consultation</a> ici 👈 !
+								</small>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+{% endblock %}

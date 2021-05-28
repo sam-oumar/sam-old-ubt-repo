@@ -1,0 +1,5 @@
+2020-11-16 23:00:33,762 - DEBUG - La fonction est bien executee
+2020-11-16 23:00:33,763 - INFO - Message d'information
+2020-11-16 23:00:33,763 - WARNING - Attention
+2020-11-16 23:00:33,763 - ERROR - Une erreur est arrivée
+2020-11-16 23:00:33,763 - CRITICAL - Erreur critique

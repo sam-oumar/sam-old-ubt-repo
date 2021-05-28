@@ -1,0 +1,35 @@
+{% extends 'appcour/layouts/base.html' %}
+{% load static %}
+{% load bulma_tags %}
+{% block title %} Imputation Courriers {% endblock %}
+{% block body %}
+<section class="hero">
+	<div class="hero-body">
+		<div class="container">
+			<div class="columns is-centered">
+				<div class="column is-5-tablet is-4-desktop is-5-widescreen">
+					<h1 class="title has-text-centered">Imputations</h1>
+					<form class="box has-background-white-bis" method="POST">
+						{% csrf_token %}
+						{% for non_field_error in form.non_field.errors %}
+						<p class="help is-danger">{{ non_field_error }}</p>
+						{% endfor %}
+						{% for field in form %}
+						<div class="field">
+							<!-- <label for="{{ field.id_for_field }}" class="label">{{ field.html_name }}</label> -->
+							{{ field|bulma }}
+						</div>
+						{% endfor %}
+						<div class="field">
+							<button class="button has-background-primary">
+									<strong>Imputer</strong>
+							</button>
+							<a class="button" href="{% url 'appcour:home' %}">Annuler</a>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+{% endblock %}

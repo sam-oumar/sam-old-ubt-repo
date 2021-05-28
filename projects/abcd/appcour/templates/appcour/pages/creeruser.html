@@ -1,0 +1,42 @@
+{% extends 'appcour/layouts/base.html' %}
+
+{% load static %}
+
+{% load bulma_tags %}
+
+{% block title %} Creation Utilisateurs {% endblock %}
+
+{% block body %}
+
+<section class="hero">
+	<div class="hero-body">
+		<div class="container">
+			<div class="columns is-centered">
+				<div class="column is-5-tablet is-4-desktop is-5-widescreen">
+					<h1 class="title has-text-centered">Creation</h1>
+					<form class="box has-background-white-bis" method="POST">
+						{% csrf_token %}
+
+						{% for non_field_error in form.non_field.errors %}
+						<p class="help is-danger">{{ non_field_error }}</p>
+						{% endfor %}
+
+						{% for field in form %}
+						<div class="field">
+							{{ field|bulma }}
+						</div>
+						{% endfor %}
+						<div class="field">
+							<button class="button has-background-primary">
+									<strong>Login</strong>
+							</button>
+							<a class="button" href="{% url 'appcour:home' %}">Annuler</a>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+{% endblock %}
